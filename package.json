@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook"
   },
   "dependencies": {
     "react": "^18.2.0",
