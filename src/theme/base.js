@@ -1,0 +1,2 @@
+//@TODO USE COMMONG THEME PROPERTIES HERE
+const baseTheme = {};
