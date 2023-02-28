@@ -1,8 +1,8 @@
 import { AccountCircle } from "@mui/icons-material";
 import {
+  Alert,
   Box,
   Button,
-  Container,
   Paper,
   Stack,
   TextField,
@@ -16,6 +16,7 @@ export function SignIn() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [signInError, setSignInError] = useState(undefined);
 
   const handleEmailChange = (event) => {
     const { value } = event.target;
@@ -29,99 +30,97 @@ export function SignIn() {
 
   const handleSignInClick = () => {
     //@TODO IMPLEMENT SIGN-IN LOGIC
-    //@TODO IMPLEMENT SIGN-IN LOGIC
   };
 
   return (
     <>
-      <Container
-        maxWidth={false}
+      <Box
         sx={{
-          height: "100vh",
-          background:
-            "linear-gradient(90deg, rgba(161,196,253,1) 0%, rgba(194,233,251,1) 100%)",
+          height: "80%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
         }}
       >
-        <Box
+        <Paper
+          elevation={3}
           sx={{
-            height: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
+            padding: `${theme.spacing(1)} ${theme.spacing(4)}`,
           }}
         >
-          <Paper
-            elevation={3}
-            sx={{
-              padding: theme.spacing(6),
-            }}
-          >
-            <Box sx={{ width: "100%" }}>
-              <Stack>
-                <Box
+          <Box sx={{ width: "100%" }}>
+            <Stack>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <AccountCircle
                   sx={{
-                    display: "flex",
-                    justifyContent: "center",
+                    padding: theme.spacing(1),
+                    background: theme.palette.grey[300],
+                    borderRadius: "50%",
                   }}
-                >
-                  <AccountCircle
-                    sx={{
-                      padding: theme.spacing(1),
-                      background: theme.palette.grey[300],
-                      borderRadius: "50%",
-                    }}
-                  />
-                </Box>
-                <Box
-                  sx={{
-                    padding: theme.spacing(4),
-                    textAlign: "center",
-                  }}
-                >
-                  <Typography variant="h6">Welcome Back!</Typography>
-                </Box>
-                <Box>
-                  <TextField
-                    id="user-email"
-                    label="Email"
-                    fullWidth
-                    value={email}
-                    onChange={handleEmailChange}
-                  />
-                </Box>
+                />
+              </Box>
+              <Box
+                sx={{
+                  padding: theme.spacing(4),
+                  textAlign: "center",
+                }}
+              >
+                <Typography variant="h6">Welcome Back!</Typography>
+              </Box>
+              <Box>
+                <TextField
+                  id="user-email"
+                  label="Email"
+                  type="email"
+                  fullWidth
+                  value={email}
+                  onChange={handleEmailChange}
+                />
+              </Box>
+              <Box py={2}>
+                <TextField
+                  id="user-password"
+                  type="password"
+                  label="Password"
+                  fullWidth
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+              </Box>
+              {signInError && (
                 <Box py={2}>
-                  <TextField
-                    id="user-password"
-                    type="password"
-                    label="Password"
-                    fullWidth
-                    value={password}
-                    onChange={handlePasswordChange}
-                  />
+                  <Alert severity="error">
+                    {/** @TODO IMPLEMENT SIGN-IN ERROR ALERT */}
+                  </Alert>
                 </Box>
-                <Box py={2}>
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    onClick={handleSignInClick}
-                  >
-                    Sign In
-                  </Button>
-                  <Button
-                    href="/sign-up"
-                    variant="text"
-                    fullWidth
-                    sx={{ marginTop: theme.spacing(2) }}
-                  >
-                    Sign Up
-                  </Button>
-                </Box>
-              </Stack>
-            </Box>
-          </Paper>
-        </Box>
-      </Container>
+              )}
+              <Box py={2}>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  onClick={handleSignInClick}
+                >
+                  Sign In
+                </Button>
+                <Button
+                  href="/auth/sign-up"
+                  variant="text"
+                  fullWidth
+                  sx={{ marginTop: theme.spacing(2) }}
+                >
+                  Sign Up
+                </Button>
+              </Box>
+            </Stack>
+          </Box>
+        </Paper>
+      </Box>
     </>
   );
 }

@@ -22,21 +22,22 @@ export function ColorModeProvider({ children }) {
   }, []);
 
   const toggleColorMode = useCallback(() => {
-    localStorage.setItem(
-      "mode",
-      colorMode === "light" ? "dark" : "light"
-    );
-    setColorMode((prevColorMode) =>
-      prevColorMode === "light" ? "dark" : "light"
-    );
+    setColorMode((prevColorMode) => {
+      const newMode = prevColorMode === "light" ? "dark" : "light";
+
+      localStorage.setItem("mode", newMode);
+      return newMode;
+    });
   }, []);
 
   const theme = useMemo(() => {
-    createTheme(getDesingTokens(colorMode));
+    //@TODO IMPLEMENT COLORS
+    const modeDesignTokens = getDesingTokens(colorMode);
+    return createTheme();
   }, [colorMode]);
 
   return (
-    <ColorModeContext.Provider value={{ toggleColorMode }}>
+    <ColorModeContext.Provider value={{ toggleColorMode, colorMode }}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ColorModeContext.Provider>
   );

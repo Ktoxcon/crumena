@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
+import { MainNavbar } from "../components/ui/navbar/main-navbar";
 
 export function Home() {
   return (
     <>
-      <h1>Landing Page</h1>
-      <Link to="sign-in">Login</Link>
+      <MainNavbar isLandingPage />
     </>
   );
 }
