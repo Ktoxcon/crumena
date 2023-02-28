@@ -13,9 +13,7 @@ export function AuthLayout() {
           maxWidth={false}
           sx={{
             height: "100vh",
-            overflowY: "scroll",
-            background:
-              "linear-gradient(90deg, rgba(161,196,253,1) 0%, rgba(194,233,251,1) 100%)",
+            overflow: "hidden",
           }}
         >
           <Outlet />

@@ -1,10 +1,13 @@
 import { DarkMode, LightMode, Wallet } from "@mui/icons-material";
 import {
   AppBar,
+  Box,
   Button,
   IconButton,
   Link,
+  Link as UILink,
   Toolbar,
+  Typography,
   useTheme,
 } from "@mui/material";
 import { useColorMode } from "../../../hooks/use-color-mode/use-color-mode";
@@ -12,6 +15,13 @@ import { useColorMode } from "../../../hooks/use-color-mode/use-color-mode";
 export function MainNavbar({ isLandingPage }) {
   const theme = useTheme();
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const sectionSx = {
+    paddingX: theme.spacing(6),
+    cursor: "pointer",
+    color: "inherit",
+    fontWeight: "bold",
+  };
 
   return (
     <>
@@ -25,7 +35,6 @@ export function MainNavbar({ isLandingPage }) {
               textDecoration: "none",
               fontWeight: theme.typography.fontWeightBold,
               cursor: "pointer",
-              flexGrow: "1",
               paddingX: theme.spacing(0.5),
             }}
             href="/"
@@ -33,6 +42,26 @@ export function MainNavbar({ isLandingPage }) {
             Crumena
           </Link>
 
+          {isLandingPage && (
+            <>
+              <Typography>
+                <UILink sx={sectionSx} underline="hover">
+                  Product
+                </UILink>
+              </Typography>
+              <Typography>
+                <UILink sx={sectionSx} underline="hover">
+                  Features
+                </UILink>
+              </Typography>
+              <Typography>
+                <UILink sx={sectionSx} underline="hover">
+                  About Us
+                </UILink>
+              </Typography>
+            </>
+          )}
+          <Box sx={{ flexGrow: 1 }} />
           {isLandingPage && (
             <Button
               href="/auth"
