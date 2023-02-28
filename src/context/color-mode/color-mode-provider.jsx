@@ -33,7 +33,7 @@ export function ColorModeProvider({ children }) {
   const theme = useMemo(() => {
     //@TODO IMPLEMENT COLORS
     const modeDesignTokens = getDesingTokens(colorMode);
-    return createTheme();
+    return createTheme(modeDesignTokens);
   }, [colorMode]);
 
   return (
