@@ -4,6 +4,7 @@ import { createContext } from "react";
  *
  * @typedef {Object} ColorModeContextValue
  * @property {Function} toggleColorMode
+ * @property {string} colorMode
  */
 
 /**

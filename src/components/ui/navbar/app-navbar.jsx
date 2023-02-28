@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-export function Navbar() {
+export function AppNavbar() {
   const [isSidebarVisible, setSidebarVisibility] = useState(false);
 
   const toggleSidebarVisibility = () => {
