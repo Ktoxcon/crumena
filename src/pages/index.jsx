@@ -8,16 +8,37 @@ export function Home() {
       <MainNavbar isLandingPage />
       <main>
         <Grid2 container>
-          <Grid2 md={6} flex>
-            <Box px={3} py={2}>
-              <Typography variant="h1" textAlign="left">
+          <Grid2 xs={12} md={6} flex>
+            <Box
+              px={3}
+              sx={{
+                minHeight: "80%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                variant="h3"
+                textAlign="left"
+                sx={{
+                  fontSize: {
+                    xs: "3rem",
+                  },
+                }}
+              >
                 Now Everybody Knows Where The Money Is Going
               </Typography>
             </Box>
           </Grid2>
-          <Grid2 md={6}>
-            <Box p={3}>
-              <img src="https://i.imgur.com/gtvwdRh.png" />
+          <Grid2 md={6} xs={12}>
+            <Box maxWidth="100%" py={3}>
+              <img
+                style={{
+                  maxWidth: "100%",
+                }}
+                src="https://i.imgur.com/gtvwdRh.png"
+              />
             </Box>
           </Grid2>
         </Grid2>

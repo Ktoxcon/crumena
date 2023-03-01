@@ -21,6 +21,10 @@ export function MainNavbar({ isLandingPage }) {
     cursor: "pointer",
     color: "inherit",
     fontWeight: "bold",
+    display: {
+      xs: "none",
+      md: "block",
+    },
   };
 
   return (
