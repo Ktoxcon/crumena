@@ -1,15 +1,16 @@
-import { Container } from "@mui/material";
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { AppNavbar } from "../components/ui/navbar/app-navbar";
 
 export function AppLayout() {
+  useEffect(() => {
+    document.body.dataset.theme = "dark";
+  });
+
   return (
     <>
       <AppNavbar />
       <main>
-        <Container>
-          <Outlet />
-        </Container>
+        <Outlet />
       </main>
     </>
   );
